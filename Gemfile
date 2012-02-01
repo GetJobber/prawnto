@@ -6,3 +6,4 @@ gemspec
 gem "spork", ">= 0.9.0"
 gem "rspec-rails"
 gem "mocha"
+gem "appraisal"

@@ -8,7 +8,7 @@ describe SuperModel do
     end
     
     it do
-      asset_binary = File.open(TEST_ASSETS + "/default_render.pdf").read.bytes.to_a
+      asset_binary = File.open(asset_path('default_render')).read.bytes.to_a
       @model.to_pdf.bytes.to_a.should == asset_binary
     end
   end

@@ -78,6 +78,20 @@ Sometimes you need to be able to render a PDF from anywhere (Background process 
 
 While layouts and partials aren't yet supported, helper methods can be called from within the PDF views. To help keep PDF's DRY, I would recommend creating a <code>PdfHelper</code> class for complex functionality. Don't forget to add this helper to your emailer if you generate PDF's as attachments.
 
+== Testing
+
+prawnto uses appraisal to run tests for different versions of prawn. In order to
+run the specs you first need to install the dependencies for each appraisal:
+  
+  rake appraisal:install
+
+Then you can run the tests for a specifc version of prawn (only 0.12.0 and 
+0.6.3, but you can add your own version) or all versions:
+
+  rake appraisal:prawn0.12.0 spec
+  rake appraisal:prawn0.6.3 spec
+  rake appraisal spec # all versions
+
 = Contributing & Reporting Issues
 
 Obviously, all code contributions are greatly appreciated. We also need help with testing and the wiki.

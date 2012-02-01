@@ -1,10 +1,12 @@
+require 'rubygems'
+require 'bundler/setup'
+
 require 'rake'
 require 'rake/testtask'
 require 'rdoc/task'
 require 'rubygems/package_task'
 
-desc 'Default: run unit tests.'
-task :default => :test
+require 'appraisal'
 
 desc 'Generate documentation for the prawnto plugin.'
 RDoc::Task.new do |rdoc|
@@ -15,9 +17,11 @@ RDoc::Task.new do |rdoc|
   rdoc.rdoc_files.include("README.rdoc", "lib/**/*.rb")
 end
 
-desc 'Test the prawnto gem'
-Rake::TestTask.new(:test) do |t|
-  t.libs << 'lib'
-  t.pattern = 'test/*_test.rb'
-  # t.verbose = true
+require 'rspec/core/rake_task'
+
+desc 'Default: run specs.'
+task :default => :spec
+
+desc "Run specs"
+RSpec::Core::RakeTask.new do |t|
 end

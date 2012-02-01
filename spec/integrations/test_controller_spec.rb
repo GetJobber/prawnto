@@ -7,7 +7,7 @@ describe TestController do
       get "/default_render.pdf"
       response.should be_success
       
-      asset_binary = File.open(TEST_ASSETS + "/default_render.pdf").read.bytes.to_a
+      asset_binary = File.open(asset_path("default_render")).read.bytes.to_a
       body_binary = response.body.bytes.to_a
       body_binary.should == asset_binary
     end
@@ -19,7 +19,7 @@ describe TestController do
     
     it "should render items in a block passed to a helper" do
       get "/yield_block_in_helper_test.pdf"
-      asset_binary = File.open(TEST_ASSETS + "/yield_block_in_helper_test.pdf").read.bytes.to_a
+      asset_binary = File.open(asset_path("yield_block_in_helper_test")).read.bytes.to_a
       body_binary = response.body.bytes.to_a
       body_binary.should == asset_binary
     end
@@ -31,7 +31,7 @@ describe TestController do
       get "/dsl_render.pdf"
       response.should be_success
       
-      asset_binary = File.open(TEST_ASSETS + "/dsl_render.pdf").read.bytes.to_a
+      asset_binary = File.open(asset_path("dsl_render")).read.bytes.to_a
       body_binary = response.body.bytes.to_a
       body_binary.should == asset_binary
     end
