@@ -29,12 +29,14 @@ module Prawnto
     def ssl_request?
       @controller.request.ssl?
     end
-    
+
     def set_other_headers_for_ie_ssl
-      return unless ssl_request? && ie_request?
+      # return unless ssl_request? && ie_request?
+      return unless ie_request?
+
       headers['Content-Description'] = 'File Transfer'
       headers['Content-Transfer-Encoding'] = 'binary'
-      headers['Expires'] = '0'        
+      headers['Expires'] = '0'
     end
 
     # TODO: kept around from railspdf-- maybe not needed anymore? should check.
