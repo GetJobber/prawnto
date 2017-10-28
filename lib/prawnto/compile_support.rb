@@ -65,7 +65,7 @@ module Prawnto
     end
 
     def set_content_type
-      @controller.response.content_type ||= Mime::PDF
+      @controller.response.content_type ||= Mime[:pdf]
     end
 
     def set_disposition
@@ -76,6 +76,3 @@ module Prawnto
 
   end
 end
-
-
-
