@@ -8,11 +8,16 @@ module Prawnto
       # :prawn_object - The object to use for the pdf object in the partial.
       #                 Defaults to the pdf document, but can take a paramenter to render within a prawn object. This
       #                 is good for items like tables, text_blocks, etc.
-      def partial!(partial_name, prawn_object = pdf)
+      def partial!(partial_name, prawn_object = pdf, locals: {})
         @pdf_stack ||= []
         @pdf_stack.push @pdf
         @pdf = prawn_object
-        instance_eval partial_source(partial_name)
+
+        local_context = binding
+        local_context.local_variable_set(:pdf, prawn_object)
+        locals.each { |name, value| local_context.local_variable_set(name, value) }
+        local_context.eval partial_source(partial_name)
+
         @pdf = @pdf_stack.pop
       end
 

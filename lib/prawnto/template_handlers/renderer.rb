@@ -70,4 +70,3 @@ module Prawnto
     end
   end
 end
-

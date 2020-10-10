@@ -40,6 +40,18 @@ describe "Prawnto::TemplateHandlers::Partials" do
       subject.pdf = prawn_document
     }
 
+    context 'a partial with locals' do
+      let(:local) { 7 }
+      let(:partial) { 'pdf.use_local(local)' }
+
+      it 'assigns locals that can be accessed in the partial' do
+        prawn_document.expects(:use_local).with(local)
+        subject.stubs(:partial_source).returns(partial)
+
+        subject.partial! "some/path", locals: { local: local }
+      end
+    end
+
     it "should default to rendering off the prawn document" do
       prawn_document.expects(:prawn_method)
       subject.partial! "some/path"
