@@ -16,7 +16,7 @@ describe Prawnto::CompileSupport do
     before do
       Prawnto::CompileSupport.any_instance.stubs(:set_pragma).returns(true)
       Prawnto::CompileSupport.any_instance.stubs(:set_cache_control).returns(true)
-      Prawnto::CompileSupport.any_instance.stubs(:set_content_type).returns(Mime['pdf'])
+      Prawnto::CompileSupport.any_instance.stubs(:set_content_type).returns(Mime[:pdf])
     end
 
     it "default" do
@@ -39,11 +39,11 @@ describe Prawnto::CompileSupport do
   end
 
   describe "#set_pragma" do
-    pending
+    skip
   end
 
   describe "#set_cache_control" do
-    pending
+    skip
   end
 
 end

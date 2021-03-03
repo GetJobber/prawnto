@@ -3,12 +3,13 @@ require "prawn"
 module Prawnto
   module TemplateHandlers
     class Base
-      def self.call(template, source)
-        check_for_pdf_redefine(template.source)
+      def self.call(template, source = nil)
+        source ||= template.source
+        check_for_pdf_redefine(source)
 
         "_prawnto_compile_setup;" +
         "renderer = Prawnto::TemplateHandlers::Renderer.new(self);"+
-        "renderer.to_pdf(self) do; #{template.source}\nend;"
+        "renderer.to_pdf(self) do; #{source}\nend;"
       end
 
     private
@@ -21,5 +22,3 @@ module Prawnto
     end
   end
 end
-
-

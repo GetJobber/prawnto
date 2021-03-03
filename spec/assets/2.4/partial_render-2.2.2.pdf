@@ -17,27 +17,27 @@ endobj
 >>
 endobj
 4 0 obj
-<< /Length 249
+<< /Length 244
 >>
 stream
 q
 
 BT
-36 747.384 Td
+36.0 747.384 Td
 /F1.0 12 Tf
 [<626566> 30 <6f726520706172> -40 <7469616c>] TJ
 ET
 
 
 BT
-36 733.512 Td
+36.0 733.512 Td
 /F1.0 12 Tf
 [<696e7369646520706172> -40 <7469616c>] TJ
 ET
 
 
 BT
-36 719.6399999999999 Td
+36.0 719.64 Td
 /F1.0 12 Tf
 [<616674657220706172> -40 <7469616c>] TJ
 ET
@@ -50,6 +50,10 @@ endobj
 << /Type /Page
 /Parent 3 0 R
 /MediaBox [0 0 612.0 792.0]
+/CropBox [0 0 612.0 792.0]
+/BleedBox [0 0 612.0 792.0]
+/TrimBox [0 0 612.0 792.0]
+/ArtBox [0 0 612.0 792.0]
 /Contents 4 0 R
 /Resources << /ProcSet [/PDF /Text /ImageB /ImageC /ImageI]
 /Font << /F1.0 6 0 R
@@ -71,13 +75,13 @@ xref
 0000000109 00000 n 
 0000000158 00000 n 
 0000000215 00000 n 
-0000000515 00000 n 
-0000000693 00000 n 
+0000000510 00000 n 
+0000000796 00000 n 
 trailer
 << /Size 7
 /Root 2 0 R
 /Info 1 0 R
 >>
 startxref
-790
+893
 %%EOF

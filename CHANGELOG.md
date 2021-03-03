@@ -1,3 +1,7 @@
+# 0.3.1 / 2020-9-23
+
+* Cleanup deprecation warnings under Rails 6.0.x
+
 # 0.3.0 / Unreleased
 
 # 0.2.6 / 2013-4-16

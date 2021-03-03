@@ -6,7 +6,7 @@ describe TestController do
   describe "simple" do
     it "returns correct PDF" do
       get :default_render, :format => :pdf
-      expect(response).to be_success
+      expect(response).to be_successful
 
       asset_binary = File.open(asset_path("default_render")).read.bytes.to_a
       body_binary = response.body.bytes.to_a
@@ -20,7 +20,7 @@ describe TestController do
 
     it "should render items in a block passed to a helper" do
       get :yield_block_in_helper_test, :format => :pdf
-      expect(response).to be_success
+      expect(response).to be_successful
 
       asset_binary = File.open(asset_path("yield_block_in_helper_test")).read.bytes.to_a
       body_binary = response.body.bytes.to_a
@@ -32,7 +32,7 @@ describe TestController do
   describe "dsl" do
     it "returns correct PDF" do
       get :dsl_render, :format => :pdf
-      expect(response).to be_success
+      expect(response).to be_successful
 
       asset_binary = File.open(asset_path("dsl_render")).read.bytes.to_a
       body_binary = response.body.bytes.to_a
@@ -43,7 +43,7 @@ describe TestController do
   describe "partials" do
     it "renders partials" do
       get :partial_render, :format => :pdf
-      expect(response).to be_success
+      expect(response).to be_successful
 
       asset_binary = File.open(asset_path("partial_render")).read.bytes.to_a
       body_binary = response.body.bytes.to_a
@@ -54,7 +54,7 @@ describe TestController do
   describe "complex headers" do
     it "should return a file with a specified filename" do
       get :filename_test, :format => :pdf
-      expect(response).to be_success
+      expect(response).to be_successful
 
       expect(response.header["Content-Disposition"]).to eq("attachment;filename=\"fancy_name.pdf\"")
     end

@@ -85,12 +85,20 @@ Limited partial support is available. Check out the wiki for details.
 
 == Testing & Development
 
+=== Running tests
 Tests can be ran against different versions of Rails like so:
 
 <code>
 BUNDLE_GEMFILE=spec/gemfiles/Gemfile.rails-4.2.x bundle install
 BUNDLE_GEMFILE=spec/gemfiles/Gemfile.rails-4.2.x bundle exec rspec spec
 </code>
+
+
+=== Asset generation
+All test assets have been generated using ruby 2.4 and prawn 2.2.2
+
+To generate your own assets for alternate versions, launch the rails server and use it to generate new assets. The naming structure is:
+spec/assets/<ruby_version>/file_name-<prawn_version>.pdf
 
 ---
 

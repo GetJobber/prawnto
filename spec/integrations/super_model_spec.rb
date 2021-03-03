@@ -9,7 +9,7 @@ describe SuperModel do
     
     it do
       asset_binary = File.open(asset_path('default_render')).read.bytes.to_a
-      @model.to_pdf.bytes.to_a.should == asset_binary
+      expect(@model.to_pdf.bytes.to_a).to eq(asset_binary)
     end
   end
   

@@ -23,7 +23,9 @@ describe "Prawnto::TemplateHandlers::Partials" do
       path = subject.send :get_file_path, "test/_p1"
     end
 
-    it "should look in the current folder first"
+    it "should look in the current folder first" do
+      skip
+    end
   end
 
   describe "#partial_source" do
@@ -51,7 +53,7 @@ describe "Prawnto::TemplateHandlers::Partials" do
     it "should return to the original pdf object upon completion" do
       prawn_object.stubs(:prawn_method)
       subject.partial! "some/path", prawn_object
-      subject.pdf.should == prawn_document
+      expect(subject.pdf).to eq(prawn_document)
     end
 
     it "should handle nested partials" do
@@ -61,7 +63,7 @@ describe "Prawnto::TemplateHandlers::Partials" do
 
       nested_prawn_object.expects("nested_prawn_method")
       subject.partial! "partial1", prawn_object
-      subject.pdf.should == prawn_document
+      expect(subject.pdf).to eq(prawn_document)
     end
 
   end

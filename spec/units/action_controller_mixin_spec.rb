@@ -8,16 +8,16 @@ describe TestController do
 
   it "Controller should start with the defaults" do
     @controller = TestController.new
-    @controller.send(:compute_prawnto_options).should == {:inline=>true, :prawn => {}}
+    expect(@controller.send(:compute_prawnto_options)).to eq({:inline=>true, :prawn => {}})
   end
 
   describe ".prawnto" do
     it "should store prawn_hash" do
-      PrawntoControllerWithInlineTrue.prawn_hash.should == {:page_orientation=>:landscape}
+      expect(PrawntoControllerWithInlineTrue.prawn_hash).to eq({:page_orientation=>:landscape})
     end
 
     it "should store prawnto_hash" do
-      PrawntoControllerWithInlineTrue.prawnto_hash.should == {:inline=>true}
+      expect(PrawntoControllerWithInlineTrue.prawnto_hash).to eq({:inline=>true})
     end
   end
 
@@ -28,11 +28,11 @@ describe TestController do
     end
 
     it "should affect that controller" do
-      @controller.send(:compute_prawnto_options).should == {:inline=>false, :prawn => {}}
+      expect(@controller.send(:compute_prawnto_options)).to eq ({:inline=>false, :prawn => {}})
     end
 
     it "should not affect the controller class" do
-      PrawntoControllerWithInlineTrue.new.send(:compute_prawnto_options).should == {:inline=>true, :prawn=>{:page_orientation=>:landscape}}
+      expect(PrawntoControllerWithInlineTrue.new.send(:compute_prawnto_options)).to eq({:inline=>true, :prawn=>{:page_orientation=>:landscape}})
     end
   end
 
@@ -40,7 +40,7 @@ describe TestController do
     it "should merge the class settings and the instance settings" do
       @controller = TestController.new
       @controller.send(:prawnto, {:inline=>false, :prawn=>{:page_orientation=>:landscape, :page_size=>'A4'}})
-      @controller.send(:compute_prawnto_options).should == {:inline=>false, :prawn=>{:page_orientation=>:landscape, :page_size=>'A4'}}
+      expect(@controller.send(:compute_prawnto_options)).to eq({:inline=>false, :prawn=>{:page_orientation=>:landscape, :page_size=>'A4'}})
     end
   end
 

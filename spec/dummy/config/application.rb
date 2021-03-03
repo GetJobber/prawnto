@@ -43,6 +43,8 @@ module Dummy
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    # Use Rails 6.1 content_type values
+    config.action_dispatch.return_only_media_type_on_content_type = false
   end
 end
-
